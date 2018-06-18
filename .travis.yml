@@ -1,0 +1,17 @@
+language: go
+
+go:
+  - "1.10"
+
+cache:
+  directories:
+    /usr/local/bin/
+
+before_install:
+  - make deps
+  - sudo make install_consul
+  - consul agent -dev &
+
+script:
+  - make test
+
