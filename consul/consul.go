@@ -95,7 +95,6 @@ func (r *Resolver) updater(instances []string, lastIndex uint64) {
 	for {
 		select {
 		case <-r.quitc:
-			close(r.updatesc)
 			break
 		default:
 			newInstances, lastIndex, err = r.getInstances(lastIndex)
